@@ -1,0 +1,8 @@
+{
+  "name": "TP4",
+  "app_id": "9adb1e19",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
