@@ -4,11 +4,16 @@
       Ionic Blank
     </ion-title>
   </ion-navbar>
+  <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+  <ion-list *ngIf="results!=null ; else elseBlock">
+  <ion-item *ngFor="let result of results">
+    <ion-thumbnail item-start><img src="{{result.image}}"></ion-thumbnail>
+     <h2>{{ result.title }}</h2>
+    <span>{{ result.date }}</span>
+  </ion-item>
+</ion-list>
+<ng-template #elseBlock>Aucun résultat</ng-template>
 </ion-content>
