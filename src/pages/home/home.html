@@ -9,11 +9,14 @@
 
 <ion-content padding>
   <ion-list *ngIf="results!=null ; else elseBlock">
-  <ion-item *ngFor="let result of results">
-    <ion-thumbnail item-start><img src="{{result.image}}"></ion-thumbnail>
-     <h2>{{ result.title }}</h2>
-    <span>{{ result.date }}</span>
-  </ion-item>
+<ion-item *ngFor="let result of results">
+  <ion-thumbnail item-start>
+    <img src="{{result.image}}">
+  </ion-thumbnail>
+  <h2>{{ result.title }}</h2>
+  <span>{{ result.date }}</span>
+  <button ion-button [navPush]="pushpage" [navParams]="result">Page de détails</button>
+</ion-item>
 </ion-list>
 <ng-template #elseBlock>Aucun résultat</ng-template>
 </ion-content>

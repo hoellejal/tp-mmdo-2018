@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { notImplemented } from '@angular/core/src/render3/util';
 import { empty } from 'rxjs/Observer';
+import { DetailsPage } from '../details/details';
 
 export interface Result {
   title: string;
@@ -14,16 +15,16 @@ const fakeResults: Result[] = [
   { title: 'meh', author: '', date: 1998, image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSytlv79MtJ00cc0c_skEKa5MxZhaASjZxP9KchIIezgYW3lDz6qg'}
 ]
 
-const fake: Result[] = null;
-
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage {
   results: Result[];
+  pushpage: typeof DetailsPage;
   constructor(public navCtrl: NavController) {
-   this.results = fake;
+      this.results = null;
+      this.pushpage = DetailsPage;
   }
   getItems($event:any) {
     let val = $event.target.value;
@@ -31,6 +32,6 @@ export class HomePage {
       this.results = fakeResults;
     }
     else
-    this.results = fake;
+    this.results = null;
   }
 }
